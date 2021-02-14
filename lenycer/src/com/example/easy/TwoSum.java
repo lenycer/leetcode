@@ -41,33 +41,17 @@ public class TwoSum {
         if(!valid(nums, target)) {
             throw new RuntimeException("parameter is not valid");
         }
-        Map<Integer, List<Integer>> integerStore = new HashMap<>();
+        Map<Integer, Integer> integerStore = new HashMap<>();
         for(int i=0;i<nums.length;i++) {
             int val = nums[i];
-            if(integerStore.containsKey(val)) {
-                List<Integer> list = integerStore.get(val);
-                list.add(i);
-            } else {
-                List<Integer> list = new ArrayList<>();
-                list.add(i);
-                integerStore.put(val, list);
-            }
+            integerStore.put(val, i);
         }
 
         for(int i=0;i<nums.length;i++) {
             int val = nums[i];
             int x = target - val;
-            if(integerStore.containsKey(x)) {
-                List<Integer> list = integerStore.get(x);
-                if(list.get(0).equals(i)) {
-                    if(list.size() > 1) {
-                        int j = list.get(1);
-                        return new int[]{i, j};
-                    }
-                } else {
-                    int j = list.get(0);
-                    return new int[]{i, j};
-                }
+            if(integerStore.containsKey(x) && integerStore.get(x) !=i) {
+                return new int[]{i, integerStore.get(x)};
             }
         }
         return null;
