@@ -51,14 +51,14 @@ public class TwoSum {
             int val = nums[i];
             int x = target - val;
             if(integerStore.containsKey(x) && integerStore.get(x) !=i) {
-                return new int[]{i, integerStore.get(x)};
+                return new int[]{val, integerStore.get(x)};
             }
         }
         return null;
     }
 
     private boolean valid(int[] nums, int target) {
-        if(nums == null || !(2 <= nums.length && nums.length <= 1000)) {
+        if(nums == null || !(2 <= nums.length && nums.length <= 10000)) {
             return false;
         }
         if(over109(target)) {
