@@ -50,7 +50,7 @@ public class TwoSum {
         for(int i=0;i<nums.length;i++) {
             int val = nums[i];
             int x = target - val;
-            if(integerStore.containsKey(x) && integerStore.get(x) !=i) {
+            if(integerStore.containsKey(x) && integerStore.get(x) !=i) { // target-val 이 있고 동일 index가 아닐 경우.
                 return new int[]{val, integerStore.get(x)};
             }
         }
