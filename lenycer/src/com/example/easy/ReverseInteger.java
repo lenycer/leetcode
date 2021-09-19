@@ -31,7 +31,7 @@ package com.example.easy;
  * -231 <= x <= 231 - 1
  */
 public class ReverseInteger {
-    public int reverse(long x) {
+    public int reverse2(long x) {
         if (x > Integer.MAX_VALUE || x < Integer.MIN_VALUE) {
             return 0;
         }
@@ -44,6 +44,20 @@ public class ReverseInteger {
         }
 
         return (int) rl;
+    }
+
+    public int reverse(long x) {
+        long result = 0;
+        while (true) {
+            result = result * 10  + x % 10;
+            x = x / 10;
+            if (x == 0)
+                break;
+        }
+        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            result = 0;
+        }
+        return (int) result;
     }
 
     public static void main(String[] args) {
