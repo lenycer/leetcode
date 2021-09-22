@@ -1,6 +1,7 @@
-package com.example.easy;
+package com.example.medium;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AddTwoNumbers {
 
@@ -40,6 +41,7 @@ public class AddTwoNumbers {
                 return new ListNode(val, getResultNode(nextVal, l1.next, l2.next));
             }
         }
+
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
